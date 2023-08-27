@@ -1,0 +1,19 @@
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  @apply bg-gradient-to-br from-[#021618] to-[#02161D] text-[#FFFFFA];
+  font-family: "Raleway", sans-serif;
+}
+
+@layer components {
+  .btn {
+    @apply bg-[#12b488] text-white px-3 py-2 rounded-md text-sm;
+  }
+  .card {
+    @apply p-3 rounded-md bg-white shadow-md h-full;
+  }
+}

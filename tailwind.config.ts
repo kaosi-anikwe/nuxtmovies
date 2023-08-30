@@ -15,6 +15,8 @@ module.exports = {
         highlightGreen: "#27be6f",
         customBlue: "#1D8181",
         customLightBlue: "#72D4DF",
+        customDarkText: "#484848",
+        customGreyText: "#717171",
       },
     },
   },

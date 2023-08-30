@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Header />
+    <MovieHeader />
     <main>
       <slot />
     </main>
@@ -10,4 +10,8 @@
 
 <script setup></script>
 
-<style scoped></style>
+<style scoped>
+main {
+  padding-top: 0;
+}
+</style>

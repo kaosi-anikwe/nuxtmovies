@@ -1,7 +1,5 @@
 <template>
-  <div
-    class="header-wrap active bg-gradient-to-r from-highlightGreen to-customBlue"
-  >
+  <div class="bg-transparent absolute z-[200] w-full active">
     <header>
       <div class="wrap">
         <nav class="container mx-auto p-4 flex justify-between">

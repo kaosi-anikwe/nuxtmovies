@@ -1,12 +1,16 @@
 <template>
   <div class="wrap-content">
-    <MovieCard v-for="movie in movies.results" :movie="movie" />
+    <div v-if="nonIndex">
+      <div class="search-results">
+        <h2>{{ text }}</h2>
+      </div>
+    </div>
+    <MovieCard v-for="movie in movies.results" :key="movie.id" :movie="movie" />
   </div>
 </template>
 
 <script setup>
-const url = "/api/movies";
-const { data: movies } = await useFetch(url);
+const { nonIndex, text, movies } = await useIndex();
 </script>
 
 <style scoped></style>

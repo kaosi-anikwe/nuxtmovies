@@ -1,11 +1,13 @@
 <template>
   <div class="search-wrap">
     <div class="wrap">
-      <form class="search-form">
-        <i class="icon-search"></i>
+      <form class="search-form" action="/search">
+        <button type="submit">
+          <i class="icon-search"></i>
+        </button>
         <input
           type="text"
-          name="search"
+          name="q"
           id="search-input"
           autofocus="autofocus"
           placeholder="Search"

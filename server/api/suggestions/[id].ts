@@ -1,10 +1,11 @@
-// Get most popular movies
+// Get similar movies from movie id
 
 import { useGenre } from "~/composables/useGenre";
 
 export default defineEventHandler(async (event) => {
   const { tmdbKey } = useRuntimeConfig();
-  const uri = "https://api.themoviedb.org/3/discover/movie";
+  const { id } = event.context.params ?? {};
+  const uri = `https://api.themoviedb.org/3/movie/${id}/similar`;
 
   try {
     const data: any = await $fetch(uri, {

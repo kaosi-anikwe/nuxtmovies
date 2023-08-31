@@ -5,7 +5,7 @@
         <h2>{{ text }}</h2>
       </div>
     </div>
-    <MovieCard v-for="movie in movies.results" :key="movie.id" :movie="movie" />
+    <MovieCard v-for="movie in movies" :key="movie.id" :movie="movie" />
   </div>
 </template>
 

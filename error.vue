@@ -17,6 +17,9 @@
 
 <script setup>
 const { error: error } = defineProps(["error"]);
+useHead({
+  title: `NuxtMovies | Error ${error.statusCode}`,
+});
 const handleClearError = () => {
   clearError({ redirect: "/" });
 };

@@ -1,7 +1,7 @@
-// Get most popular movies
+// Get list of genres with id and name
 export default defineEventHandler(async (event) => {
   const { tmdbKey } = useRuntimeConfig();
-  const uri = "https://api.themoviedb.org/3/discover/movie";
+  const uri = "https://api.themoviedb.org/3/genre/movie/list";
 
   try {
     const data: any = await $fetch(uri, {

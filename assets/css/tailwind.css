@@ -10,7 +10,7 @@ body {
 }
 
 main {
-  @apply float-left w-full p-0 pt-16 min-h-screen bg-gradient-to-br from-[#021618] to-[#02161D] text-[#FFFFFA];
+  @apply float-left w-full p-0 pt-16 min-h-screen bg-gradient-to-br from-[#021618] to-[#02131a] text-[#FFFFFA];
 }
 
 @media (max-width: 860px) {
@@ -24,7 +24,32 @@ main {
   }
 }
 
+@keyframes blink {
+  0% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.3;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
 @layer components {
+  .loader-overlay {
+    @apply fixed top-0 left-0 w-screen h-screen flex justify-center items-center z-[9999] bg-gradient-to-br from-[#021618] to-[#02131a];
+  }
+  .loader {
+    @apply w-[50px] h-[50px];
+    background: url("/images/loader.png");
+    animation: blink 1s infinite;
+  }
+
+  .btn {
+    @apply bg-gradient-to-r from-highlightGreen to-customBlue rounded-md text-customWhite;
+  }
   .header-wrap {
     @apply fixed z-[200] w-full;
   }
@@ -169,9 +194,6 @@ main {
     }
   }
 
-  .btn {
-    @apply bg-[#12b488] text-white px-3 py-2 rounded-md text-sm;
-  }
   .card {
     @apply p-3 rounded-md bg-white shadow-md h-full;
   }
@@ -697,6 +719,6 @@ main {
   }
   .icon-suggest {
     @apply w-5 h-3 float-left m-0 mr-2;
-    background: url("@/assets/images/icon-suggest.png");
+    background: url("/images/icon-suggest.png");
   }
 }

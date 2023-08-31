@@ -18,7 +18,7 @@
                   :src="
                     movie.poster_path
                       ? `https://image.tmdb.org/t/p/original${movie.poster_path}`
-                      : '@/assets/images/no-image-portrait.png'
+                      : '/images/no-image-portrait.png'
                   "
                   :alt="movie.title"
                   class="base"

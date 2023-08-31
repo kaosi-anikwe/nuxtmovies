@@ -3,6 +3,7 @@ export default defineNuxtConfig({
   app: {
     head: {
       title: "NuxtMovies",
+      link: [{ rel: "icon", type: "image/png", href: "/favicon(blue).png" }],
     },
   },
   devtools: { enabled: true },

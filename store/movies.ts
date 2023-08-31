@@ -1,4 +1,9 @@
 import { defineStore } from "pinia";
+import { createPinia } from "pinia";
+import piniaPluginPersistedstate from "pinia-plugin-persistedstate";
+
+const pinia = createPinia();
+pinia.use(piniaPluginPersistedstate);
 
 export const useMoviesStore = defineStore("movies", {
   state: () => ({
@@ -38,4 +43,5 @@ export const useMoviesStore = defineStore("movies", {
       }
     },
   },
+  persist: true,
 });

@@ -1,10 +1,10 @@
-# Nuxt 3 Minimal Starter
+# NuxtMovies
 
 Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
 
 ## Setup
 
-Make sure to install the dependencies:
+Make sure to install the dependencies in the project's root directory:
 
 ```bash
 # npm
@@ -16,6 +16,14 @@ pnpm install
 # yarn
 yarn install
 ```
+
+## Environment Variables
+
+The application uses the [TMDb API](https://developer.themoviedb.org/).
+
+Sign up for a free account and retrieve your API key.
+
+Set the API key as an environment variable `TMDB_PRIVATE_KEY`
 
 ## Development Server
 
@@ -59,5 +67,3 @@ pnpm run preview
 # yarn
 yarn preview
 ```
-
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.

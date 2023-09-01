@@ -24,6 +24,7 @@ useHead({
 const handleClearError = () => {
   clearError({ redirect: "/" });
 };
+  console.log(error);
 </script>
 
 <style>

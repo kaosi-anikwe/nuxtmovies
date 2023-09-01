@@ -22,6 +22,10 @@ if (exists) {
     movie = response.data.value;
     store.addMovie(movie);
   }
+} else {
+  const uri = `/api/details/${id}`;
+  const response = await useFetch(uri, { key: id });
+  movie = response.data.value;
 }
 // Error handling
 if (movie.error) {

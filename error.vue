@@ -9,6 +9,7 @@
         <button class="my-5 btn text-lg px-6 py-2" @click="handleClearError">
           Go Home...
         </button>
+        <div v-html="error.stack" class="w-[80%]"></div>
       </div>
       <div class=""></div>
     </div>
@@ -25,4 +26,10 @@ const handleClearError = () => {
 };
 </script>
 
-<style scoped></style>
+<style>
+pre {
+  margin-top: 2rem;
+  font-size: 17px;
+  text-align: left;
+}
+</style>

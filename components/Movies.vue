@@ -11,6 +11,7 @@
 
 <script setup>
 const { nonIndex, text, movies } = await useIndex();
+console.log(movies)
 </script>
 
 <style scoped></style>

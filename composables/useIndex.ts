@@ -37,6 +37,6 @@ export const useIndex = async () => {
       store.addMovie(movie);
     }
   }
-
+  console.log(movies, "FROM USEINDEX");
   return { nonIndex, text, movies };
 };

@@ -12,7 +12,7 @@ export const useIndex = async () => {
     console.log(query.q, "QUERY");
     const { data: response } = await useSearch(query.q);
     movies = response.value.results;
-    console.log(movies, "SCOPPED");
+    console.log(response.value, "SCOPPED");
     text = `Seach results for "${query.q}"`;
     useHead({
       title: `NuxtMovies | Search -"${query.q}"`,

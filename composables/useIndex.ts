@@ -9,8 +9,10 @@ export const useIndex = async () => {
   const store = useMoviesStore();
   const query = useRoute().query;
   if (query.q) {
+    console.log(query.q, "QUERY");
     const { data: response } = await useSearch(query.q);
     movies = response.value.results;
+    console.log(movies, "SCOPPED");
     text = `Seach results for "${query.q}"`;
     useHead({
       title: `NuxtMovies | Search -"${query.q}"`,

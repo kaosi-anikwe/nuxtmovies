@@ -1,5 +1,4 @@
 import { useGenreStore } from "~/store/genres";
-import { storeToRefs } from "pinia";
 
 // Get genre names with genre ids
 export const useGenre = (genreIds: any[]) => {

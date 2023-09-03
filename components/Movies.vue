@@ -10,7 +10,14 @@
 </template>
 
 <script setup>
-const { nonIndex, text, movies } = await useIndex();
+const { error, nonIndex, text, movies } = await useIndex();
+if (error) {
+  throw createError({
+    statusCode: 500,
+    message: "Internal server error. Please try again later",
+    fatal: true,
+  });
+}
 </script>
 
 <style scoped></style>

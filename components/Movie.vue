@@ -133,5 +133,3 @@ useHead({
   title: `NuxtMovies - ${movie.title}`,
 });
 </script>
-
-<style scoped></style>

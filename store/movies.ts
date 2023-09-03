@@ -1,46 +1,45 @@
-import { defineStore, createPinia } from "pinia";
-import piniaPluginPersistedstate from "pinia-plugin-persistedstate";
+import { ref, watch } from "vue";
+import { defineStore } from "pinia";
 
-const pinia = createPinia();
-pinia.use(piniaPluginPersistedstate);
+export const useMoviesStore = defineStore(
+  "movies",
+  () => {
+    const movies = ref([] as any[]);
 
-export const useMoviesStore = defineStore("movies", {
-  state: () => ({
-    movies: [] as any[],
-  }),
-  actions: {
-    addMovie(movie: any) {
+    const addMovie = (newMovie: any) => {
       // check if movie already in store
-      const exists = this.movies.some(
-        (obj: any) => (obj as any).id === movie.id
+      const exists = movies.value.some(
+        (obj: any) => (obj as any).id === newMovie.id
       );
       if (!exists) {
-        const newTask = {
-          id: movie.id,
+        const movieObj = {
+          id: newMovie.id,
           genres: [] as any[],
-          title: movie.title,
-          overview: movie.overview,
-          genre_ids: movie.genre_ids,
-          vote_count: movie.vote_count,
-          poster_path: movie.poster_path,
-          release_date: movie.release_date,
-          vote_average: movie.vote_average,
-          backdrop_path: movie.backdrop_path,
-          imdb_id: movie.imdb_id ? movie.imdb_id : null,
+          title: newMovie.title,
+          overview: newMovie.overview,
+          genre_ids: newMovie.genre_ids,
+          vote_count: newMovie.vote_count,
+          poster_path: newMovie.poster_path,
+          release_date: newMovie.release_date,
+          vote_average: newMovie.vote_average,
+          backdrop_path: newMovie.backdrop_path,
+          imdb_id: newMovie.imdb_id ? newMovie.imdb_id : null,
         };
-        // Get genres
-        const genres = useGenre(newTask.genre_ids);
-        newTask.genres = genres;
-        this.movies.push(newTask);
+        // Get genres and add object to store
+        const genres = useGenre(movieObj.genre_ids);
+        movieObj.genres = genres;
+        movies.value.push(movieObj);
       } else {
         // add IMDb id
-        for (const oldMovie of this.movies) {
-          if (oldMovie.id === movie.id && !oldMovie.imdb_id) {
-            oldMovie.imdb_id = movie.imdb_id;
+        for (const oldMovie of movies.value) {
+          if (oldMovie.id === newMovie.id && !oldMovie.imdb_id) {
+            oldMovie.imdb_id = newMovie.imdb_id;
           }
         }
       }
-    },
+    };
+
+    return { movies, addMovie };
   },
-  persist: true,
-});
+  { persist: true }
+);

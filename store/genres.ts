@@ -1,16 +1,16 @@
-import { defineStore, createPinia } from "pinia";
-import piniaPluginPersistedstate from "pinia-plugin-persistedstate";
+import { ref, watch } from "vue";
+import { defineStore } from "pinia";
 
-const pinia = createPinia();
-pinia.use(piniaPluginPersistedstate);
-export const useGenreStore = defineStore("genres", {
-  state: () => ({
-    genres: [],
-  }),
-  actions: {
-    addGenres(genres: any) {
-      this.genres = genres;
-    },
+export const useGenreStore = defineStore(
+  "genres",
+  () => {
+    const genres = ref([] as any[]);
+
+    const addGenres = (newGenres: any) => {
+      genres.value = newGenres;
+    };
+
+    return { genres, addGenres };
   },
-  persist: true,
-});
+  { persist: true }
+);
